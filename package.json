@@ -1,0 +1,12 @@
+{
+  "name": "dsh-plugin-rustgis",
+  "version": "0.1.0",
+  "description": "RustGIS and GeoLibre geoprocessing tools for DeepSeek Harness",
+  "type": "module",
+  "exports": { ".": "./src/index.js", "./cordis.patch.yml": "./cordis.patch.yml", "./package.json": "./package.json" },
+  "files": ["src", "native/win32-x64", "cordis.patch.yml"],
+  "engines": { "node": ">=22", "dsh": "0.2.2-rc.3" },
+  "dependencies": { "@deepseek-ai/dsh-tools": "0.2.2-rc.3" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "scripts": { "test": "node --test", "stage:windows": "node scripts/stage-windows.js", "prepack": "node scripts/stage-windows.js --verify" }
+}
